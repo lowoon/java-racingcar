@@ -8,8 +8,11 @@ import java.util.stream.Collectors;
 public class Cars {
     private final List<Car> cars;
 
+    private Position maxPosition;
+
     private Cars(List<Car> cars) {
         this.cars = cars;
+        this.maxPosition = Position.init();
     }
 
     public static Cars of(String inputNames, MoveStrategy moveStrategy) {
@@ -26,10 +29,27 @@ public class Cars {
     public void race() {
         for (Car car : cars) {
             car.move();
+            decideMaxPosition(car);
         }
+    }
+
+    private void decideMaxPosition(Car car) {
+        if (maxPosition.isBelow(car.getPosition())) {
+            maxPosition = Position.from(car.getPosition());
+        }
+    }
+
+    public List<Car> findWinners() {
+        return cars.stream()
+            .filter(car -> maxPosition.equals(car.getPosition()))
+            .collect(Collectors.toList());
     }
 
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);
+    }
+
+    public Position getMaxPosition() {
+        return maxPosition;
     }
 }

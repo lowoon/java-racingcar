@@ -12,4 +12,22 @@ class PositionTest {
 
         assertThat(position.getValue()).isEqualTo(1);
     }
+
+    @Test
+    void isBelow() {
+        Position position = Position.init();
+        Position comparer = Position.init();
+
+        comparer = comparer.move();
+
+        assertThat(position.isBelow(comparer)).isTrue();
+    }
+
+    @Test
+    void isNotBelow() {
+        Position position = Position.init();
+        Position comparer = Position.init();
+
+        assertThat(position.isBelow(comparer)).isFalse();
+    }
 }

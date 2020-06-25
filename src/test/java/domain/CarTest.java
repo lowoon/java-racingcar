@@ -16,7 +16,7 @@ class CarTest {
 
         car.move();
 
-        assertThat(car.getPosition()).isEqualTo(position);
+        assertThat(car.getPosition().getValue()).isEqualTo(position);
     }
 
     private static Stream<Arguments> createNumberAndPosition() {
