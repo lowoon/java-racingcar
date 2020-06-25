@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 public class Cars {
     private final List<Car> cars;
-
     private Position maxPosition;
 
     private Cars(List<Car> cars) {

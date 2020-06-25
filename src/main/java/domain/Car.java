@@ -14,7 +14,7 @@ public class Car {
     }
 
     public void move() {
-        if(moveStrategy.generateNumber() >= CRITERIA) {
+        if (moveStrategy.generateNumber() >= CRITERIA) {
             position = position.move();
         }
     }

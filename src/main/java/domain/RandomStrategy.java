@@ -1,7 +1,7 @@
 package domain;
 
 public class RandomStrategy implements MoveStrategy {
-    private int limit;
+    private final int limit;
 
     public RandomStrategy(int limit) {
         this.limit = limit;
