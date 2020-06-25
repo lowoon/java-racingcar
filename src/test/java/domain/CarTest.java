@@ -12,7 +12,7 @@ class CarTest {
     @ParameterizedTest
     @MethodSource("createNumberAndPosition")
     void move(int number, int position) {
-        Car car = new Car(new TestStrategy(number));
+        Car car = new Car(new Name("pobi"), new TestStrategy(number));
 
         car.move();
 

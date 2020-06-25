@@ -13,7 +13,7 @@ public class Cars {
 
     public static Cars of(String inputNames, MoveStrategy moveStrategy) {
         List<Car> cars = Arrays.stream(inputNames.split(",", -1))
-            .map(name -> new Car(name.trim(), moveStrategy))
+            .map(name -> new Car(new Name(name.trim()), moveStrategy))
             .collect(Collectors.toList());
         return new Cars(cars);
     }
